@@ -31,7 +31,7 @@ CONF_D7_PIN = "d7_pin"
 
 ili9341_8bit_ns = cg.esphome_ns.namespace("ili9341_8bit")
 ili9341_8bit = ili9341_8bit_ns.class_(
-    "ILI9341_8bitDisplay", cg.PollingComponent, spi.SPIDevice, display.DisplayBuffer
+    "ILI9341_8bitDisplay", cg.PollingComponent, display.DisplayBuffer
 )
 ILI9341_8bitM5Stack = ili9341_8bit_ns.class_("ILI9341_8bitM5Stack", ili9341_8bit)
 ILI9341_8bitTFT24 = ili9341_8bit_ns.class_("ILI9341_8bitTFT24", ili9341_8bit)
@@ -93,8 +93,7 @@ CONFIG_SCHEMA = cv.All(
             cv.GenerateID(CONF_RAW_DATA_ID): cv.declare_id(cg.uint8),
         }
     )
-    .extend(cv.polling_component_schema("1s"))
-    .extend(spi.spi_device_schema(False)),
+    .extend(cv.polling_component_schema("1s")),
     cv.has_at_most_one_key(CONF_PAGES, CONF_LAMBDA),
     _validate,
 )
@@ -112,7 +111,6 @@ async def to_code(config):
 
     await cg.register_component(var, config)
     await display.register_display(var, config)
-    await spi.register_spi_device(var, config)
     cg.add(var.set_model(config[CONF_MODEL]))
     cs = await cg.gpio_pin_expression(config[CONF_CS_PIN])
     cg.add(var.set_dc_pin(cs))
