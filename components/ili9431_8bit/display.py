@@ -1,10 +1,9 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome import core, pins
-from esphome.components import display, spi
+from esphome.components import display
 from esphome.const import (
     CONF_COLOR_PALETTE,
-    CONF_DC_PIN,
     CONF_ID,
     CONF_LAMBDA,
     CONF_MODEL,
@@ -14,10 +13,21 @@ from esphome.const import (
 )
 from esphome.core import CORE, HexInt
 
-DEPENDENCIES = ["spi"]
-
 CONF_COLOR_PALETTE_IMAGES = "color_palette_images"
 CONF_LED_PIN = "led_pin"
+CONF_CS_PIN = "cs_pin"
+CONF_DC_PIN = "dc_pin"
+CONF_RESET_PIN = "reset_pin"
+CONF_WR_PIN = "wr_pin"
+CONF_RD_PIN = "rd_pin"
+CONF_D0_PIN = "d0_pin"
+CONF_D1_PIN = "d1_pin"
+CONF_D2_PIN = "d2_pin"
+CONF_D3_PIN = "d3_pin"
+CONF_D4_PIN = "d4_pin"
+CONF_D5_PIN = "d5_pin"
+CONF_D6_PIN = "d6_pin"
+CONF_D7_PIN = "d7_pin"
 
 ili9341_8bit_ns = cg.esphome_ns.namespace("ili9341_8bit")
 ili9341_8bit = ili9341_8bit_ns.class_(
