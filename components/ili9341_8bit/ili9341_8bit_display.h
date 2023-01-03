@@ -103,7 +103,7 @@ class ILI9341_8bitDisplay : public PollingComponent,
   void end_read_();
   void write_byte_(uint8_t value);
 
-  uintt8 read_byte_(uint8_t value);
+  uint8_t read_byte_(uint8_t value);
 
   void write_array_(const uint8_t *data_bytes, uint8_t num_data_bytes);
 
