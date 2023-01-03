@@ -23,19 +23,19 @@ enum ILI9341_8bitColorMode {
 class ILI9341_8bitDisplay : public PollingComponent,
                        public display::DisplayBuffer {
  public:
-  void set_cs_pin(GPIOPin *cs_pin) { cs_pin_ = cs_pin; }
-  void set_dc_pin(GPIOPin *dc_pin) { dc_pin_ = dc_pin; }
-  void set_reset_pin(GPIOPin *reset) { reset_pin_ = reset_pin; }
-  void set_wr_pin(GPIOPin *wr_pin) { wr_pin_ = wr_pin; }
-  void set_rd_pin(GPIOPin *rd_pin) { rd_pin_ = rd_pin; }
-  void set_d0_pin(GPIOPin *d0_pin) { d0_pin_ = d0_pin; }
-  void set_d1_pin(GPIOPin *d1_pin) { d1_pin_ = d1_pin; }
-  void set_d2_pin(GPIOPin *d2_pin) { d2_pin_ = d2_pin; }
-  void set_d3_pin(GPIOPin *d3_pin) { d3_pin_ = d3_pin; }
-  void set_d4_pin(GPIOPin *d4_pin) { d4_pin_ = d4_pin; }
-  void set_d5_pin(GPIOPin *d5_pin) { d5_pin_ = d5_pin; }
-  void set_d6_pin(GPIOPin *d6_pin) { d6_pin_ = d6_pin; }
-  void set_d7_pin(GPIOPin *d7_pin) { d7_pin_ = d7_pin; }
+  void set_cs_pin(InternalGPIOPin *cs_pin) { cs_pin_ = cs_pin; }
+  void set_dc_pin(InternalGPIOPin *dc_pin) { dc_pin_ = dc_pin; }
+  void set_reset_pin(InternalGPIOPin *reset) { reset_pin_ = reset_pin; }
+  void set_wr_pin(InternalGPIOPin *wr_pin) { wr_pin_ = wr_pin; }
+  void set_rd_pin(InternalGPIOPin *rd_pin) { rd_pin_ = rd_pin; }
+  void set_d0_pin(InternalGPIOPin *d0_pin) { d0_pin_ = d0_pin; }
+  void set_d1_pin(InternalGPIOPin *d1_pin) { d1_pin_ = d1_pin; }
+  void set_d2_pin(InternalGPIOPin *d2_pin) { d2_pin_ = d2_pin; }
+  void set_d3_pin(InternalGPIOPin *d3_pin) { d3_pin_ = d3_pin; }
+  void set_d4_pin(InternalGPIOPin *d4_pin) { d4_pin_ = d4_pin; }
+  void set_d5_pin(InternalGPIOPin *d5_pin) { d5_pin_ = d5_pin; }
+  void set_d6_pin(InternalGPIOPin *d6_pin) { d6_pin_ = d6_pin; }
+  void set_d7_pin(InternalGPIOPin *d7_pin) { d7_pin_ = d7_pin; }
   float get_setup_priority() const override;
   void set_model(ILI9341_8bitModel model) { this->model_ = model; }
   void set_palette(const uint8_t *palette) { this->palette_ = palette; }
@@ -110,10 +110,10 @@ class ILI9341_8bitDisplay : public PollingComponent,
 
   uint32_t buffer_to_transfer_(uint32_t pos, uint32_t sz);
 
-  GPIOPin *reset_pin_{nullptr};
-  GPIOPin *led_pin_{nullptr};
-  GPIOPin *dc_pin_;
-  GPIOPin *busy_pin_{nullptr};
+  InternalGPIOPin *reset_pin_{nullptr};
+  InternalGPIOPin *led_pin_{nullptr};
+  InternalGPIOPin *dc_pin_;
+  InternalGPIOPin *busy_pin_{nullptr};
 };
 
 //-----------   M5Stack display --------------
