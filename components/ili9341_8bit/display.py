@@ -112,7 +112,7 @@ async def to_code(config):
     await display.register_display(var, config)
     cg.add(var.set_model(config[CONF_MODEL]))
     cs = await cg.gpio_pin_expression(config[CONF_CS_PIN])
-    cg.add(var.set_cd_pin(cs))
+    cg.add(var.set_cs_pin(cs))
     dc = await cg.gpio_pin_expression(config[CONF_DC_PIN])
     cg.add(var.set_dc_pin(dc))
     reset = await cg.gpio_pin_expression(config[CONF_RESET_PIN])
