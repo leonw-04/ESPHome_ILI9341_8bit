@@ -110,10 +110,19 @@ class ILI9341_8bitDisplay : public PollingComponent,
   uint8_t transfer_buffer_[64];
 
   uint32_t buffer_to_transfer_(uint32_t pos, uint32_t sz);
-
-  GPIOPin *reset_pin_{nullptr};
-  GPIOPin *led_pin_{nullptr};
+  GPIOPin *cs_pin_;
   GPIOPin *dc_pin_;
+  GPIOPin *reset_pin_;
+  GPIOPin *wr_pin_;
+  GPIOPin *rd_pin_;
+  GPIOPin *d0_pin_;
+  GPIOPin *d1_pin_;
+  GPIOPin *d2_pin_;
+  GPIOPin *d3_pin_;
+  GPIOPin *d4_pin_;
+  GPIOPin *d5_pin_;
+  GPIOPin *d6_pin_;
+  GPIOPin *d7_pin_;
   GPIOPin *busy_pin_{nullptr};
 };
 
