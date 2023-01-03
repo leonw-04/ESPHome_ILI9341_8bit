@@ -234,22 +234,24 @@ void HOT ILI9341_8bitDisplay::draw_absolute_pixel_internal(int x, int y, Color c
 uint32_t ILI9341_8bitDisplay::get_buffer_length_() { return this->get_width_internal() * this->get_height_internal(); }
 
 void ILI9341_8bitDisplay::start_command_() {
+  this->reset_pin_->digital_write(true);
+  this->rd_pin_->digital_write(true);
+  this->cs_pin_->digital_write(false);
+  this->dc_pin_->digital_write(false);
   this->wr_pin_->digital_write(false);
 }
 
 void ILI9341_8bitDisplay::end_command_() { 
-  this->cs_pin_->digital_write(false);
-  this->rd_pin_->digital_write(true);
-  this->dc_pin_->digital_write(false);
   this->wr_pin_->digital_write(true);
 }
 void ILI9341_8bitDisplay::start_data_() {
+  this->reset_pin_->digital_write(true);
+  this->rd_pin_->digital_write(true);
+  this->cs_pin_->digital_write(false);
+  this->dc_pin_->digital_write(true);
   this->wr_pin_->digital_write(false);
 }
 void ILI9341_8bitDisplay::end_data_() {
-  this->cs_pin_->digital_write(false);
-  this->rd_pin_->digital_write(true);
-  this->dc_pin_->digital_write(true);
   this->wr_pin_->digital_write(true);
 }
 void ILI9341_8bitDisplay::start_read_() {
