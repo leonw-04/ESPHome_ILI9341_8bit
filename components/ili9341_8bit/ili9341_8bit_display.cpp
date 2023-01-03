@@ -286,7 +286,7 @@ uint8_t ILI9341_8bitDisplay::read_byte_() {
 void ILI9341_8bitDisplay::write_array_(const uint8_t *data_bytes, uint8_t num_data_bytes) {
   for (int i=0; i<num_data_bytes; i++) {
     this->wr_pin_->digital_write(false);
-    this->write_byte_(&(data_bytes+i));
+    this->write_byte_(*(data_bytes+i));
     this->wr_pin_->digital_write(true);
   }
 }
