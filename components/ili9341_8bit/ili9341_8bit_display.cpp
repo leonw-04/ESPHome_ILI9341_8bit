@@ -257,7 +257,7 @@ void ILI9341_8bitDisplay::start_read_() {
   this->dc_pin_->digital_write(true);
   this->wr_pin_->digital_write(true);
 }
-void ILI9341_8bitDisplay::end_read_() { this->disable(); }
+void ILI9341_8bitDisplay::end_read_();
 
 void ILI9341_8bitDisplay::write_byte_(uint8_t value) {
   this->d0_pin_->digital_write(value & (1 << 0));
