@@ -1,7 +1,6 @@
 #pragma once
 
 #include "esphome/core/component.h"
-#include "esphome/components/spi/spi.h"
 #include "esphome/components/display/display_buffer.h"
 #include "ili9341_8bit_defines.h"
 #include "ili9341_8bit_init.h"
