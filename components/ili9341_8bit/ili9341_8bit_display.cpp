@@ -275,7 +275,7 @@ void ILI9341_8bitDisplay::write_byte_(uint8_t value) {
   this->d7_pin_->digital_write(value & (1 << 7));
 }
 
-uintt8 ILI9341_8bitDisplay::read_byte_(uint8_t value) {
+uint8_t ILI9341_8bitDisplay::read_byte_(uint8_t value) {
   while (!this->rd_pin_->digital_read());
   bool d0_state = this->d0_pin_->digital_read();
   bool d1_state = this->d1_pin_->digital_read();
