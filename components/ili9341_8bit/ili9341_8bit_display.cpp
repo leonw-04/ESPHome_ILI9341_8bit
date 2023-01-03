@@ -314,17 +314,28 @@ void ILI9341_8bitDisplay::set_addr_window_(uint16_t x1, uint16_t y1, uint16_t w,
   uint16_t x2 = (x1 + w - 1), y2 = (y1 + h - 1);
   this->command(ILI9341_8bit_CASET);  // Column address set
   this->start_data_();
-  this->write_byte(x1 >> 8);
-  this->write_byte(x1);
-  this->write_byte(x2 >> 8);
-  this->write_byte(x2);
+  this->write_byte_(x1 >> 8);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(x1);
+    this->wr_pin_->digital_write(true);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(x2 >> 8);
+    this->wr_pin_->digital_write(true);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(x2);
   this->end_data_();
   this->command(ILI9341_8bit_PASET);  // Row address set
   this->start_data_();
-  this->write_byte(y1 >> 8);
-  this->write_byte(y1);
-  this->write_byte(y2 >> 8);
-  this->write_byte(y2);
+  this->write_byte_(y1 >> 8);
+    this->wr_pin_->digital_write(true);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(y1);
+    this->wr_pin_->digital_write(true);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(y2 >> 8);
+    this->wr_pin_->digital_write(true);
+    this->wr_pin_->digital_write(false);
+  this->write_byte_(y2);
   this->end_data_();
   this->command(ILI9341_8bit_RAMWR);  // Write to RAM
 }
