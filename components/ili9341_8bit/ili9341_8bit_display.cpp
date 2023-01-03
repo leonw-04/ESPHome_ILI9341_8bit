@@ -235,7 +235,6 @@ uint32_t ILI9341_8bitDisplay::get_buffer_length_() { return this->get_width_inte
 
 void ILI9341_8bitDisplay::start_command_() {
   this->wr_pin_->digital_write(false);
-  this->enable();
 }
 
 void ILI9341_8bitDisplay::end_command_() { 
@@ -243,24 +242,20 @@ void ILI9341_8bitDisplay::end_command_() {
   this->rd_pin_->digital_write(true);
   this->dc_pin_->digital_write(false);
   this->wr_pin_->digital_write(true);
-  this->disable();
 }
 void ILI9341_8bitDisplay::start_data_() {
   this->wr_pin_->digital_write(false);
-  this->enable();
 }
 void ILI9341_8bitDisplay::end_data_() {
   this->cs_pin_->digital_write(false);
   this->rd_pin_->digital_write(true);
   this->dc_pin_->digital_write(true);
   this->wr_pin_->digital_write(true);
-  this->disable();
 }
 void ILI9341_8bitDisplay::start_read_() {
   this->cs_pin_->digital_write(false);
   this->dc_pin_->digital_write(true);
   this->wr_pin_->digital_write(true);
-  this->enable();
 }
 void ILI9341_8bitDisplay::end_read_() { this->disable(); }
 
@@ -275,7 +270,7 @@ void ILI9341_8bitDisplay::write_byte_(uint8_t value) {
   this->d7_pin_->digital_write(value & (1 << 7));
 }
 
-uint8_t ILI9341_8bitDisplay::read_byte_(uint8_t value) {
+uint8_t ILI9341_8bitDisplay::read_byte_() {
   while (!this->rd_pin_->digital_read());
   bool d0_state = this->d0_pin_->digital_read();
   bool d1_state = this->d1_pin_->digital_read();
