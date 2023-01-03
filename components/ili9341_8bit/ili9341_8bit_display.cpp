@@ -280,7 +280,7 @@ uint8_t ILI9341_8bitDisplay::read_byte_() {
   bool d5_state = this->d5_pin_->digital_read();
   bool d6_state = this->d6_pin_->digital_read();
   bool d7_state = this->d7_pin_->digital_read();
-  return (d0_state << 0) | (d1_state << 1) | (d2_state << 2) | (d3_state << 3) | (d4_state << 4) | (d5_state << 5) | (d6_state << 6) | (d7_state << 7);
+  return (uint8_t)((d0_state << 0) | (d1_state << 1) | (d2_state << 2) | (d3_state << 3) | (d4_state << 4) | (d5_state << 5) | (d6_state << 6) | (d7_state << 7));
 }
 
 void ILI9341_8bitDisplay::write_array_(const uint8_t *data_bytes, uint8_t num_data_bytes) {
