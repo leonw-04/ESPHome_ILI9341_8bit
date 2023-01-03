@@ -23,10 +23,20 @@ enum ILI9341_8bitColorMode {
 class ILI9341_8bitDisplay : public PollingComponent,
                        public display::DisplayBuffer {
  public:
+  void set_dc_pin(GPIOPin *dc_pin) { cs_pin_ = cs_pin; }
   void set_dc_pin(GPIOPin *dc_pin) { dc_pin_ = dc_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { wr_pin_ = wr_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { rd_pin_ = rd_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d0_pin_ = d0_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d1_pin_ = d1_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d2_pin_ = d2_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d3_pin_ = d3_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d4_pin_ = d4_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d5_pin_ = d5_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d6_pin_ = d6_pin; }
+  void set_dc_pin(GPIOPin *dc_pin) { d7_pin_ = d7_pin; }
   float get_setup_priority() const override;
-  void set_reset_pin(GPIOPin *reset) { this->reset_pin_ = reset; }
-  void set_led_pin(GPIOPin *led) { this->led_pin_ = led; }
+  void set_reset_pin(GPIOPin *reset) { reset_pin_ = reset_pin_; }
   void set_model(ILI9341_8bitModel model) { this->model_ = model; }
   void set_palette(const uint8_t *palette) { this->palette_ = palette; }
   void set_buffer_color_mode(ILI9341_8bitColorMode color_mode) { this->buffer_color_mode_ = color_mode; }
