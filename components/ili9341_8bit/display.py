@@ -8,8 +8,7 @@ from esphome.const import (
     CONF_LAMBDA,
     CONF_MODEL,
     CONF_PAGES,
-    CONF_RAW_DATA_ID,
-    CONF_RESET_PIN,
+    CONF_RAW_DATA_ID
 )
 from esphome.core import CORE, HexInt
 
