@@ -26,7 +26,7 @@ class ILI9341_8bitDisplay : public PollingComponent,
  public:
   void set_cs_pin(GPIOPin *cs_pin) { cs_pin_ = cs_pin; }
   void set_dc_pin(GPIOPin *dc_pin) { dc_pin_ = dc_pin; }
-  void set_reset_pin(GPIOPin *reset) { reset_pin_ = reset_pin; }
+  void set_reset_pin(GPIOPin *reset_pin) { reset_pin_ = reset_pin; }
   void set_wr_pin(GPIOPin *wr_pin) { wr_pin_ = wr_pin; }
   void set_rd_pin(GPIOPin *rd_pin) { rd_pin_ = rd_pin; }
   void set_d0_pin(GPIOPin *d0_pin) { d0_pin_ = d0_pin; }
